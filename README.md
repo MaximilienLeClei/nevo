@@ -172,6 +172,7 @@ sbatch --account=<account> \
 
 ## Any pre-built tasks I can try ?
 
+***
 
 ### <p align="center">Control Tasks</p>
 
@@ -271,8 +272,8 @@ mpiexec -n 2 python3 main.py --env_path envs/multistep/imitate/atari.py \
                              --data_path ~/rl-baselines3-zoo/
 ```
 
-<img src="https://i.imgur.com/8MiXwUN.png" alt="x" width="20" height="17"> You can find results of our early Atari experiments through [this slide deck](https://docs.google.com/presentation/d/1s-xtB7cP1ZvxklnRqgjYg8-o-xxAV8hjuSSr7V86F4w/edit?usp=sharing) and [this thesis excerpt](https://papyrus.bib.umontreal.ca/xmlui/bitstream/handle/1866/26072/Le_Clei_Maximilien_2021_memoire.pdf#page=33) (page 33).  
-<img src="https://i.imgur.com/8MiXwUN.png" alt="x" width="20" height="17"> You might also be interested in the additional argument `"transfer" : "yes"`, which allows agents to pass on their internal and environment states to their offsprings. You can learn more about it through [this slide deck](https://docs.google.com/presentation/d/1a5EDwKOaonJFNWet9E7oXG_oEYxIpEh-16561inNigI/edit#slide=id.gecfae6ab8b_0_0).
+<img src="https://i.imgur.com/8MiXwUN.png" alt="x" width="20" height="17"> You can find results of our early Atari experiments through [this slide deck](https://docs.google.com/presentation/d/1s-xtB7cP1ZvxklnRqgjYg8-o-xxAV8hjuSSr7V86F4w/) and [this thesis excerpt](https://papyrus.bib.umontreal.ca/xmlui/bitstream/handle/1866/26072/Le_Clei_Maximilien_2021_memoire.pdf#page=33) (page 33).  
+<img src="https://i.imgur.com/8MiXwUN.png" alt="x" width="20" height="17"> You might also be interested in the additional argument `"transfer" : "yes"`, which allows agents to pass on their internal and environment states to their offsprings. You can learn more about it through [this slide deck](https://docs.google.com/presentation/d/1a5EDwKOaonJFNWet9E7oXG_oEYxIpEh-16561inNigI).
 
 ***
 
