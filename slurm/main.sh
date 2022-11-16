@@ -26,7 +26,6 @@ if [ ! ${1} == "-s" ] && [ ! ${1} == "--states_path" ]; then
 	states_path=data/states/
 	save_frequency=100
 	communication=ps_p2p
-	enable_gpu_use=0
 	additional_arguments={}
 
 	while [ ${#} -gt 0 ]; do
@@ -50,8 +49,6 @@ if [ ! ${1} == "-s" ] && [ ! ${1} == "--states_path" ]; then
 				save_frequency=${2}; shift 2;;
 			-c|--communication)
 				communication=${2}; shift 2;;
-			-u|--enable_gpu_use)
-				enable_gpu_use=${2}; shift 2;;
 			-a|--additional_arguments)
 				additional_arguments=${2}; shift 2;;
 			*)
@@ -69,6 +66,7 @@ else
 
 	nb_tests=10
 	nb_obs_per_test=1000000000
+	seed=-1
 
 	while [ ${#} -gt 0 ]; do
 
@@ -79,6 +77,8 @@ else
 				nb_tests=${2}; shift 2;;
 			-o|--nb_obs_per_test)
 				nb_obs_per_test=${2}; shift 2;;
+			-d|--seed)
+				seed=${2}; shift 2;;
 			*)
 				echo "Unknown argument : ${1}"; exit 1 ;;
 		esac
@@ -109,7 +109,6 @@ if [ -z ${nb_tests} ]; then
 										  ${states_path} \
 										  ${save_frequency} \
 										  ${communication} \
-										  ${enable_gpu_use} \
 										  "${additional_arguments}"
 		[ ${?} != 0 ]
 	do true; done
@@ -119,7 +118,8 @@ else
 	while
 		srun ${SCRATCH}/nevo/slurm/run.sh ${states_path} \
 										  ${nb_tests} \
-										  ${nb_obs_per_test}
+										  ${nb_obs_per_test} \
+										  ${seed}
 		[ ${?} != 0 ]
 	do true; done
 

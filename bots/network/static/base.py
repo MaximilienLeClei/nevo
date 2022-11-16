@@ -25,18 +25,9 @@ class StaticNetworkBotBase(NetworkBotBase):
 
     def initialize_bot(self) -> None:
         """
-        Links up the bot's net to either CPU or GPU. If GPUs are available,
-        nets are equally distributed accross GPUs, otherwise they are set up
-        on CPUs.
+        Initialize the bot's nets.
         """
-        if self.args.enable_gpu_use and torch.cuda.device_count() > 0:
-            self.device = 'cuda:' + str(self.rank % torch.cuda.device_count())
-        else:
-            self.device = 'cpu'
-
         for net in self.nets:
-
-            net.device = self.device
 
             for parameter in net.parameters():
 

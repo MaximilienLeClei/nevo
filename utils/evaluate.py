@@ -43,7 +43,14 @@ parser.add_argument('--nb_tests', '-t', type=int, default=10,
 parser.add_argument('--nb_obs_per_test', '-o', type=int, default=2**31-1,
                     help="Number of observations per test.")
 
+parser.add_argument('--seed', '-s', type=int, default=-1,
+                    help="Optional seed to evaluate on. If this argument is "
+                         "passed, only one test will be ran.")
+
 args = parser.parse_args()
+
+if args.seed != -1:
+    args.nb_tests = 1
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -241,6 +248,11 @@ for gen in process_gens:
         bot.setup_to_run()
 
         for j in range(args.nb_tests):
+
+            if args.seed != -1:
+                seed = args.seed
+            else:
+                seed = MAX_INT-j
 
             np.random.seed(MAX_INT-j)
             torch.manual_seed(MAX_INT-j)

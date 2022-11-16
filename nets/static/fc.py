@@ -19,31 +19,18 @@ from nets.static.base import StaticNetBase
 
 class Net(StaticNetBase):
 
-    def __init__(self, d_output):
+    def __init__(self, dimensions):
     
         super().__init__()
 
-        self.conv1 = nn.Conv2d(   1,  32, 8, 4) 
-        self.conv2 = nn.Conv2d(  32,  64, 6, 3)
-        self.conv3 = nn.Conv2d(  64,  64, 4, 1)
+        self.fc = nn.ModuleList()
 
-        self.rnn1  = nn.RNN(     64,  64)
-
-        self.fc2   = nn.Linear(  64, d_output)
-
-        self.h = torch.zeros(1, 1, 64)
-
-    def reset(self):
-        
-        self.h = torch.zeros(1, 1, 64)
+        for i, _ in enumerate(dimensions[:-1]):
+            self.fc.append(nn.Linear(dimensions[i], dimensions[i+1]))
 
     def forward(self, x):
 
-        x = torch.relu(self.conv1(x))
-        x = torch.relu(self.conv2(x))
-        x = torch.relu(self.conv3(x))
-
-        x, self.h = self.rnn1(x.view(1, -1)[None], self.h)
-        x = torch.relu(self.fc2(x[0,:,:]))
+        for i, _ in enumerate(self.dimensions[:-1]):
+            x = torch.relu(self.fc[i](x))
 
         return x

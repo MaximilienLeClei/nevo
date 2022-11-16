@@ -20,9 +20,9 @@ import gym
 from gym import spaces
 import numpy as np
 
-
+# emulator.seed(seed) creates unstable behaviour & doesn't alter the randomness
 def seed(emulator, seed):
-    return # emulator.seed(seed) creates unstable behaviour
+    return 
 
 def set_state(emulator, state):
     emulator.unwrapped.restore_full_state(state)

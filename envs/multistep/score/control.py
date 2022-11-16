@@ -16,18 +16,15 @@ import gym
 
 from envs.multistep.score.base import ScoreMultistepEnvBase
 from utils.functions.control import get_score_tasks, get_task_name
-from utils.functions.control import seed
+from utils.functions.control import seed, get_state, set_state
 
 
 class Env(ScoreMultistepEnvBase):
 
     def __init__(self, args, rank, size):
 
-        args.additional_arguments['steps'] = 0
-
         self.valid_tasks = get_score_tasks()
-        self.seed = seed
-        self.get_state, self.set_state = lambda: None, lambda: None
+        self.seed, self.get_state, self.set_state = seed, get_state, set_state
 
         super().__init__(args, rank, size)
 

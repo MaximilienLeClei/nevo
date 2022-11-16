@@ -84,9 +84,6 @@ parser.add_argument('--communication', '-c',
                          "All protocols must remain constant across "
                          "successive experiments.")
 
-parser.add_argument('--enable_gpu_use', '-u', type=int, default=0,
-                    help="Makes use of GPUs if available (for static nets).")
-
 parser.add_argument('--additional_arguments', '-a', type=str, default='{}',
                     help="JSON string or path to a JSON file of additional "
                          "arguments.")

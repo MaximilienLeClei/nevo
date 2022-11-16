@@ -43,15 +43,7 @@ class Net(StaticNetBase):
 
     def reset(self):
         
-        self.h = torch.zeros(1, 1, 64).to(self.device)
-
-    def pre_setup_to_run(self):
-
-        self.h.to(self.device)
-
-    def pre_setup_to_save(self):
-
-        self.h.to('cpu')
+        self.h = torch.zeros(1, 1, 64)
 
     def forward(self, x):
 

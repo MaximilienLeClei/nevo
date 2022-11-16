@@ -25,8 +25,6 @@ class StaticNetBase(nn.Module):
         
         super().__init__()
         
-        self.device = None
-        
     def reset(self) -> None:
         """
         Method to reset the static net's inner state. Can be either
@@ -36,32 +34,15 @@ class StaticNetBase(nn.Module):
 
     def setup_to_run(self) -> None:
         """
-        Method to setup the net for it to then be ran.
-        """
-        self.pre_setup_to_run()
-
-        self.to(self.device)
-
-    def pre_setup_to_run(self) -> None:
-        """
-        Placeholder method that can be used for user-defined pre-run setup.
-        Can be implemented to send tensors to the device among other things.
+        Method to setup the net for it to then be ran. Can be either
+        implemented or left blank if this function is not desired.
         """
         pass
         
     def setup_to_save(self) -> None:
         """
         Method to setup the net for it to be pickled (to a file or to be sent
-        to another process).
-        """
-        self.pre_setup_to_save()
-        
-        self.to('cpu')
-
-    def pre_setup_to_save(self) -> None:
-        """
-        Placeholder method that can be used for user-defined pre-run setup.
-        Can be implemented to send tensors back to the CPU for saving among
-        other things.
+        to another process). Can be either implemented or left blank if this
+        function is not desired.
         """
         pass

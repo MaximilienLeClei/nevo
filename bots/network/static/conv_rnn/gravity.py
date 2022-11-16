@@ -48,7 +48,6 @@ class Bot(StaticNetworkBotBase):
 
             x = x[None, None, :, :]
             x = torch.Tensor(x)
-            x = x.to(self.device)
 
         return x
 
@@ -58,7 +57,6 @@ class Bot(StaticNetworkBotBase):
             x = torch.clamp(x, 0, 1)
             
         else: # self.function == 'discriminator':
-            x = x.to('cpu')
             x = x.numpy().squeeze()
             x = np.minimum(x, 1)
             

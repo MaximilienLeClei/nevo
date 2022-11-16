@@ -16,7 +16,7 @@ import numpy as np
 import torch
 
 from bots.network.static.base import StaticNetworkBotBase
-from nets.static.rnn import Net
+from nets.static.fc import Net
 from utils.functions.control import get_info, standardize
 
 

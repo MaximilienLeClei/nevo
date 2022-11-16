@@ -16,6 +16,12 @@
 def seed(emulator, seed):
     emulator.seed(seed)
 
+def set_state(emulator, state):
+    emulator = state
+
+def get_state(emulator):
+    return copy.deepcopy(emulator)
+
 def get_score_tasks():
 
     return ['acrobot', 'cart_pole', 'mountain_car', 'mountain_car_continuous',

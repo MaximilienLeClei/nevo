@@ -21,7 +21,7 @@ module load StdEnv/2020 python/3.8.10 scipy-stack/2021a gcc/9.3.0 openmpi/4.0.3 
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${HOME}/.mujoco/mujoco210/bin &>/dev/null
 
-if [ ${#} == 11 ]; then
+if [ ${#} == 10 ]; then
 
     env_path=${1}
     bots_path=${2}
@@ -32,8 +32,7 @@ if [ ${#} == 11 ]; then
     states_path=${7}
     save_frequency=${8}
     communication=${9}
-    enable_gpu_use=${10}
-    additional_arguments=${11}
+    additional_arguments=${10}
 
     python3 ${SCRATCH}/nevo/main.py --env_path ${env_path} \
                                     --bots_path ${bots_path} \
@@ -44,16 +43,17 @@ if [ ${#} == 11 ]; then
                                     --states_path ${states_path} \
                                     --save_frequency ${save_frequency} \
                                     --communication ${communication} \
-                                    --enable_gpu_use ${enable_gpu_use} \
                                     --additional_arguments "${additional_arguments}"
 else # [ ${#} == 3 ]
 
     states_path=${1}
     nb_tests=${2}
     nb_obs_per_test=${3}
+    seed=${4}
 
     python3 ${SCRATCH}/nevo/utils/evaluate.py --states_path ${states_path} \
                                               --nb_tests ${nb_tests} \
-                                              --nb_obs_per_test ${nb_obs_per_test}
+                                              --nb_obs_per_test ${nb_obs_per_test} \
+                                              --seed ${seed}
 
 fi

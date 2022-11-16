@@ -59,13 +59,11 @@ class Bot(StaticNetworkBotBase):
         x = grayscale_rescale_divide(x[3:], 64)
         x = x[None,None,:,:]
         x = torch.Tensor(x)
-        x = x.to(self.device)
 
         return x
 
     def net_to_env(self, x):
 
-        x = x.to('cpu')
         x = x.numpy().squeeze()
 
         if ('merge' in self.args.additional_arguments and

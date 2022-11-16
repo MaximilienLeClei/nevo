@@ -44,17 +44,6 @@ class Net(StaticNetBase):
 
         if self.recurrent:
             self.h *= 0
-            self.h.to(self.device)
-
-    def pre_setup_to_run(self):
-
-        if self.recurrent:
-            self.h.to(self.device)
-
-    def pre_setup_to_save(self):
-
-        if self.recurrent:
-            self.h.to('cpu')
 
     def forward(self, x):
 

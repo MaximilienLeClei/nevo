@@ -66,9 +66,12 @@ class ScoreMultistepEnvBase(MultistepEnvBase):
         """
         if self.args.additional_arguments['transfer'] in ['no', 'fit']:
 
-            self.seed(
-                self.emulator,
-                gen_nb * self.args.additional_arguments['trials'] + trial_nb)
+            if 'seed' in self.args.additional_arguments:
+                self.bot.seed = self.args.additional_arguments['seed']
+            else:
+                self.seed(
+                    self.emulator,
+                    gen_nb*self.args.additional_arguments['trials']+trial_nb)
 
             obs = self.emulator.reset()
 
@@ -108,7 +111,10 @@ class ScoreMultistepEnvBase(MultistepEnvBase):
 
             self.bot.reset()
 
-            self.bot.seed = gen_nb
+            if 'seed' in self.args.additional_arguments:
+                self.bot.seed = self.args.additional_arguments['seed']
+            else:
+                self.bot.seed = gen_nb
 
             self.seed(self.emulator, self.bot.seed)
 
