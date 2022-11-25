@@ -22,7 +22,7 @@ class Net(StaticNetBase):
     def __init__(self, dimensions):
     
         super().__init__()
-
+        self.dimensions = dimensions
         self.fc = nn.ModuleList()
 
         for i, _ in enumerate(dimensions[:-1]):

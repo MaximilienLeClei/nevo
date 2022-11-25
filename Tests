@@ -1,0 +1,54 @@
+## RNN with different transfer options
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/rnn/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "acrobot", "transfer" : "no"}'
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/rnn/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "acrobot", "transfer" : "yes"}'
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/rnn/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "acrobot", "transfer" : "fit"}'
+
+## FC with different transfer options
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/fc/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "acrobot", "transfer" : "no"}'
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/fc/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "acrobot", "transfer" : "yes"}'
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/fc/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "acrobot", "transfer" : "fit"}'
+
+mpiexec -n 1 python3 utils/evaluate.py --states_path data/states/envs.multistep.score.control/steps.150~task.acrobot~transfer.fit~trials.1/bots.network.static.rnn.control/16/100
+
+
+# Try different control tasks
+working tasks = acrobot, cart_pole, mountain_car, mountain_car_continuous, pendulum, bipedal_walker, bipedal_walker_hardcore, lunar_lander, lunar_lander_continuous,
+ant, half_cheetah, hopper, humanoid, humanoid_standup, inverted_double_pendulum, inverted_pendulum, reacher, swimmer, walker_2d
+
+mpiexec -n 2 python3 main.py --env_path envs/multistep/score/control.py \
+                             --bots_path bots/network/static/fc/control.py \
+                             --nb_generations 100 \
+                             --population_size 16 \
+                             --additional_arguments '{"task" : "walker_2d", "transfer" : "no"}'
+
+mpiexec -n 1 python3 utils/evaluate.py --states_path data/states/envs.multistep.score.control/steps.150~task.humanoid~transfer.no~trials.1/bots.network.static.fc.control/16/100

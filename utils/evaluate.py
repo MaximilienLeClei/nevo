@@ -32,7 +32,7 @@ sys.setrecursionlimit(2**31-1)
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--states_path', '-s', type=str, required=True,
+parser.add_argument('--states_path', '-sp', type=str, required=True,
                     help="Path to the saved states <=> "
                          "data/states/<env_path>/<additional_arguments>/"
                          "<bots_path>/<population_size>/")
@@ -78,9 +78,9 @@ if args.states_path[-1] == '/':
 
 split_path = args.states_path.split('/')
 
-env_path = split_path[-4]
-additional_arguments = split_path[-3]
-bots_path = split_path[-2]
+env_path = split_path[2]
+additional_arguments = split_path[3]
+bots_path = split_path[4]
 pop_size = int(split_path[-1])
 
 split_additional_arguments = additional_arguments.split('~')
