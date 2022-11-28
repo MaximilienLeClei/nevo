@@ -78,9 +78,9 @@ if args.states_path[-1] == '/':
 
 split_path = args.states_path.split('/')
 
-env_path = split_path[2]
-additional_arguments = split_path[3]
-bots_path = split_path[4]
+env_path = split_path[-4]
+additional_arguments = split_path[-3]
+bots_path = split_path[-2]
 pop_size = int(split_path[-1])
 
 split_additional_arguments = additional_arguments.split('~')
@@ -131,12 +131,18 @@ else: # 'gravity' in env_path:
 Import bots
 """
 
-if 'gym' in env_path:
+if 'control' in env_path:
+    if 'rnn' in bots_path:
+        if 'dynamic' in bots_path:
+            from bots.network.dynamic.rnn.control import Bot
+        else: # 'static' in bots_path:
+            from bots.network.static.rnn.control import Bot
+    else:
+        if 'dynamic' in bots_path:
+            raise Exception("There is no dynamic FC net   ")
+        else: # 'static' in bots_path:
+            from bots.network.static.fc.control import Bot
 
-    if 'dynamic' in bots_path:
-        from bots.network.dynamic.rnn.control import Bot
-    else: # 'static' in bots_path:
-        from bots.network.static.rnn.control import Bot
 
 elif 'atari' in env_path:
 
