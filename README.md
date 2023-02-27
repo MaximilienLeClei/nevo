@@ -3,6 +3,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 **Evolving Artificial Neural Networks (a.k.a. [Neuroevolution](https://en.wikipedia.org/wiki/Neuroevolution)) in parallel using [MPI for Python](https://mpi4py.readthedocs.io/en/stable/).**
 
+**Warning:** This library is no longer maintained. All functionalities present in Nevo are available in a newer library called [Gran](https://github.com/MaximilienLC/gran)
+
 ## What does this library do ?
 
 At its core, this library runs a simple [Genetic Algorithm](https://en.wikipedia.org/wiki/Genetic_algorithm) wherein fixed-sized populations of artificial agents are iterated upon. Every iteration, during the **variation** stage, all agents receive random mutations. They are then **evaluated** on some defined task. Finally the top 50% scoring agents are **selected** and duplicated over the bottom 50% agents (truncation selection). This process loops onto itself for a chosen amount of iterations.
