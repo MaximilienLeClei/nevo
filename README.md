@@ -3,7 +3,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 **Evolving Artificial Neural Networks (a.k.a. [Neuroevolution](https://en.wikipedia.org/wiki/Neuroevolution)) in parallel using [MPI for Python](https://mpi4py.readthedocs.io/en/stable/).**
 
-**Warning:** This library is no longer maintained. All functionalities present in Nevo are available in a newer library called [Gran](https://github.com/MaximilienLC/gran)
+**Warning:** This library is no longer maintained. Development efforts have moved to a new library aiming called [Gran](https://github.com/MaximilienLC/gran)
 
 ## What does this library do ?
 
