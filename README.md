@@ -27,8 +27,8 @@ There are many potential types of artificial agents that can be used in combinat
 ### On a personal computer (tested on Ubuntu 20.04):
 
 ```
-# Debian packages                       ----------mpi4py---------- ~~~~~~~~~~~~~~~~~Gym~~~~~~~~~~~~~~~~~~~
-sudo apt install git python3-virtualenv python3-dev libopenmpi-dev g++ swig libosmesa6-dev patchelf ffmpeg
+# Debian packages                            ----------mpi4py---------- ~~~~~~~~~~~~~~~~~Gym~~~~~~~~~~~~~~~~~~~
+sudo apt install wget git python3-virtualenv python3-dev libopenmpi-dev g++ swig libosmesa6-dev patchelf ffmpeg
 
 # MuJoCo
 wget https://mujoco.org/download/mujoco210-linux-x86_64.tar.gz -P ~/Downloads/
