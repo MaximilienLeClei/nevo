@@ -1,12 +1,12 @@
 mpi4py==3.0.3
-opencv_python==4.0.1.24
+opencv_python==4.1.2.30
 torch==1.10.0
 gym==0.21.0
 ale-py==0.7
 AutoROM==0.4.0
 box2d_py==2.3.8
-stable-baselines3==1.4.0
-sb3_contrib==1.4.0
+stable-baselines3==1.5.0
+sb3_contrib==1.5.0
 ipykernel==6.0.0
 notebook==6.0.0
 networkx==2.6.2
