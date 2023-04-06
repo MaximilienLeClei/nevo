@@ -5,6 +5,7 @@ gym==0.21.0
 ale-py==0.7
 AutoROM==0.4.0
 box2d_py==2.3.8
+mujoco-py==2.1.2.14
 stable-baselines3==1.5.0
 sb3_contrib==1.5.0
 ipykernel==6.0.0
