@@ -3,7 +3,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 **Evolving Artificial Neural Networks (a.k.a. [Neuroevolution](https://en.wikipedia.org/wiki/Neuroevolution)) in parallel using [MPI for Python](https://mpi4py.readthedocs.io/en/stable/).**
 
-**Warning:** This library is no longer maintained. Development efforts have moved to a new library called [Gran](https://github.com/MaximilienLC/gran).
+**Warning:** This library is no longer maintained. Development efforts have moved to a new library called [CNeuroMax](https://github.com/courtois-neuromod/cneuromax).
 
 ## What does this library do ?
 
